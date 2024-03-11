@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { db } from "../firebaseConfig";
 import { getDocs, collection } from "firebase/firestore";
 import Link from "next/link";
+import Image from "next/image";
 
 async function fetchfire() {
   const querysnapshot = await getDocs(collection(db, "contacts"));
@@ -33,28 +34,33 @@ export default function Home() {
       <div className="flex flex-col bg-orange-400 w-3/5 h-auto p-10 m-2 mt-20">
         {contactData.map((contact) => (
           <>
-            <div key={contact.id} className=" mt-5">
-              <center>
-                <h1 className="text-4xl font-bold ">Profile Details</h1>
-              </center>
-              <hr className="m-3 mt-7" />
-              <div className="ml-10 mt-7 flex flex-col ">
-                <div className="flex flex-row text-xl font-medium text-white m-3">
-                  <label className="mr-5 ">Name: </label>
-                  <h2>{contact.name}</h2>
+            <center>
+              <h1 className="text-4xl font-bold ">Profile Details</h1>
+            </center>
+            <hr className="m-3 mt-7" />
+            <div className="flex ">
+              <div key={contact.id} className=" mt-5">
+                <div className="ml-10 mt-7 flex flex-col ">
+                  <div className="flex flex-row text-xl font-medium text-white m-3">
+                    <label className="mr-5 ">Name: </label>
+                    <h2>{contact.name}</h2>
+                  </div>
+                  <div className="flex flex-row text-xl font-medium text-white m-3">
+                    <label className="mr-5 ">Email: </label>
+                    <h2>{contact.email}</h2>
+                  </div>
+                  <div className="flex flex-row text-xl font-medium text-white m-3">
+                    <label className="mr-5 ">Mobile No: </label>
+                    <h2>{contact.mno}</h2>
+                  </div>
+                  <div className="flex flex-row text-xl font-medium text-white m-3">
+                    <label className="mr-5 ">Address: </label>
+                    <h2>{contact.add}</h2>
+                  </div>
                 </div>
-                <div className="flex flex-row text-xl font-medium text-white m-3">
-                  <label className="mr-5 ">Email: </label>
-                  <h2>{contact.email}</h2>
-                </div>
-                <div className="flex flex-row text-xl font-medium text-white m-3">
-                  <label className="mr-5 ">Mobile No: </label>
-                  <h2>{contact.mno}</h2>
-                </div>
-                <div className="flex flex-row text-xl font-medium text-white m-3">
-                  <label className="mr-5 ">Address: </label>
-                  <h2>{contact.add}</h2>
-                </div>
+              </div>
+              <div className="mt-12 ml-44">
+                <Image src="/pic.png" width={200} height={50}></Image>
               </div>
             </div>
             <div>
@@ -66,23 +72,29 @@ export default function Home() {
               </center>
               <hr className="m-3 mt-7" />
               <div className=" flex p-3 m-5 items-center">
-                <p className="text-lg font-medium m-2">Add New Users (insert operation) :</p>
-                <Link 
+                <p className="text-lg font-medium m-2">
+                  Add New Users (insert operation) :
+                </p>
+                <Link
                   className="p-2 bg-green-600 text-white pr-5 pl-5 m-2 hover:bg-green-400 hover:text-black"
                   href={{
-                    pathname: "/Insert"
+                    pathname: "/Insert",
                   }}
-                >Click Here
+                >
+                  Click Here
                 </Link>
               </div>
               <div className=" flex p-3 m-5 items-center">
-                <p className="text-lg font-medium m-2">All Users (read operation) :</p>
-                <Link 
+                <p className="text-lg font-medium m-2">
+                  All Users (read operation) :
+                </p>
+                <Link
                   className="p-2 bg-green-600 text-white pr-5 pl-5 m-2 hover:bg-green-400 hover:text-black"
                   href={{
-                    pathname: "/Fetch"
+                    pathname: "/Fetch",
                   }}
-                >Click Here
+                >
+                  Click Here
                 </Link>
               </div>
             </div>

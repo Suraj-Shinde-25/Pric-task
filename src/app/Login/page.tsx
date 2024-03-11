@@ -21,11 +21,11 @@ export default function SighUp() {
         console.log(uname, " ", pass);
 
         if (uname === confirmUname && pass === confirmPass) {
-            alert('Login Successfull');
+            alert('Login Successfull ✅✅');
             router.push('/After');
             
         } else {
-            alert("Invalid Password and username !!");
+            alert("Invalid Password and username !! ❌❌");
         }
     };
     return (
