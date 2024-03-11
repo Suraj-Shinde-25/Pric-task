@@ -22,8 +22,8 @@ export default function Insert() {
     addDoc(collection(db, "users"), {
       name: name,
       email: email,
-      mob: mob,
-      address: address,
+      mno: mob,
+      add: address,
     })
       .then(() => {
         alert("Data Inserted 👍");
@@ -33,12 +33,12 @@ export default function Insert() {
       });
   };
   return (
-    <div className="flex flex-col w-screen h-screen">
-      <div className="flex flex- col w-auto h-auto p-10 m-5  bg-orange-400">
+    <div className="flex flex-col w-screen h-screen justify-center items-center">
+      <div className="flex flex- col w-1/3 h-auto p-10 m-10  bg-orange-400">
         <form onSubmit={insertData} className="flex flex-col">
-        <h1 className="font-bold text-black text-3xl">Insert Data</h1>
-          <div>
-            <label>Name: </label>
+        <h1 className="font-bold text-black text-3xl m-3 mb-5">Add New Users Data</h1>
+          <div className="flex flex-col m-1 ml-3">
+            <label className="text-xl">Name: </label>
             <input
               type="text"
               placeholder="Enter name"
@@ -48,8 +48,8 @@ export default function Insert() {
               required
             />
           </div>
-          <div>
-            <label>Email: </label>
+          <div className="flex flex-col m-1 ml-3">
+            <label className="text-xl">Email: </label>
             <input
               type="email"
               placeholder="Enter email"
@@ -59,8 +59,8 @@ export default function Insert() {
               required
             />
           </div>
-          <div>
-            <label>Mobile No: </label>
+          <div className="flex flex-col m-1 ml-3">
+            <label className="text-xl">Mobile No: </label>
             <input
               type="number"
               placeholder="Enter mobile no"
@@ -70,8 +70,8 @@ export default function Insert() {
               required
             />
           </div>
-          <div>
-            <label>Adress: </label>
+          <div className="flex flex-col m-1 ml-3">
+            <label className="text-xl">Address: </label>
             <input
               type="text"
               placeholder="Enter address"
@@ -81,9 +81,11 @@ export default function Insert() {
               required
             />
           </div>
-          <button className="p-2 bg-green-600 mt-3 text-white text-l font-semibold hover:bg-green-400 hover:text-black" type="submit">
-            Insert
-          </button>
+          <div className="flex flex-col m-1 ml-3">
+            <button className="p-2 bg-green-600 mt-3 text-white text-l font-semibold hover:bg-green-400 hover:text-black" type="submit">
+              Insert
+            </button>
+          </div>
         </form>
       </div>
     </div>

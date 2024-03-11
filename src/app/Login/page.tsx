@@ -21,26 +21,13 @@ export default function SighUp() {
         console.log(uname, " ", pass);
 
         if (uname === confirmUname && pass === confirmPass) {
-            console.log("Hi ", { uname }, " Login Successfull");
-            router.push('/Fetch');
+            alert('Login Successfull');
+            router.push('/After');
             
         } else {
-            console.log("Invalid Password and username !!");
+            alert("Invalid Password and username !!");
         }
     };
-
-    // async function validateDetails(){
-    //     const citiesRef = db.collection('cities');
-    //     const snapshot = await citiesRef.where('capital', '==', true).get();
-    //     if (snapshot.empty) {
-    //     console.log('No matching documents.');
-    //     return;
-    //     }  
-
-    //     snapshot.forEach(doc => {
-    //     console.log(doc.id, '=>', doc.data());
-    //     });
-    // }
     return (
         <div className="flex justify-center w-screen h-screen p-10 flex-col items-center">
             <div className="flex flex-col w-96 h-96 bg-orange-400 p-10">
@@ -54,9 +41,10 @@ export default function SighUp() {
                         type="text"
                         name="uname"
                         value={uname}
+                        required
                         className="w-full h-9 mt-3"
                         onChange={(e) => setUname(e.target.value)}
-                    />
+                        />
                     <br />
                     <label>Password : </label>
                     <input
@@ -64,18 +52,15 @@ export default function SighUp() {
                         name="pass"
                         className="w-full h-9 mt-3"
                         onChange={(e) => setPass(e.target.value)}
-                    />
+                        required
+                        />
                     <br />
                     <button
                         value={pass}
                         type="submit"
                         
                         className="p-2 bg-green-600 mt-3 text-white text-l font-semibold hover:bg-green-400 hover:text-black"
-                    >
-                       {/* <Link href={{pathname:'/After' ,query:{
-                        name : `${uname}`,pass:`${pass}`
-                       }}}>Login</Link> */}
-                       Login
+                    >Login
                     </button>
                 </form>
             </div>
